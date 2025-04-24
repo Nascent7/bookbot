@@ -18,3 +18,16 @@ def char_count(contents):
             char_dict[char] = 1 # adds key since it is not in the dict. and sets vlaue to 1
     
     return char_dict
+
+def sort_dict(char_dict): # sorting function
+    chars_list = [] # list to hold dictionaries of (char : num) pairs
+
+    for char, count in char_dict.items():
+        chars_list.append({"char": char, "num": count})
+    
+    def sort_on(dict): # helper function for sorting 
+        return dict["num"]
+    
+    chars_list.sort(reverse=True, key=sort_on) # sorts list from greatest to least
+
+    return chars_list # returns originally created list 
